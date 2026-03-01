@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayun Giri | Blockchain & AI Engineer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #00f2ff;
+            --secondary: #7000ff;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 24px;
+        }
+
+        /* HERO SECTION */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 80px 0;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.15), transparent 70%);
+            z-index: -1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.1), transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 12vw, 7rem);
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            margin-bottom: 24px;
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+            display: block;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--text-dim);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-sub b {
+            color: #fff;
+        }
+
+        /* BUTTONS */
+        .btn-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .main-btn,
+        .ghost-btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+        }
+
+        .main-btn {
+            background: #fff;
+            color: #000;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+        }
+
+        .ghost-btn {
+            border: 1px solid var(--border);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .ghost-btn:hover {
+            background: var(--glass-hover);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            letter-spacing: -0.03em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            background: var(--glass-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-num {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 0.75rem;
+            margin-bottom: 24px;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .file-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: gap 0.3s;
+        }
+
+        .file-link:hover {
+            gap: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 80px 0 40px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-info {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /* RESPONSIVE ADJUSTMENTS */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero-sub {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn-box {
+                justify-content: center;
+            }
+
+            .main-btn,
+            .ghost-btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="hero-badge">Blockchain & Cloud Specialist</div>
+            <h1>Mayun <br> <span class="outline-text">Giri.</span></h1>
+            <p class="hero-sub">
+                Final Year Computer Science Student @ <b>Techno India University</b>.
+                Developing secure decentralized systems. <b>CGPA: 7.9</b>.
+            </p>
+            <div class="btn-box">
+                <a href="https://github.com/samantaarghya204-cmyk/mayun_resume/blob/main/resume_txt.pdf" target="_blank"
+                    class="main-btn">Download Resume (PDF)</a>
+                <a href="mailto:mayungiri2002@gmail.com" class="ghost-btn">Get In Touch</a>
+            </div>
+        </header>
+
+        <section id="work">
+            <div class="section-header">
+                <h2>Core Expertise.</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-num">01 / TRAINING</span>
+                    <h3>SAP S/4 HANA Development</h3>
+                    <p>Advanced enterprise training at Techno India University focused on scalable applications.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-num">02 / RESEARCH</span>
+                    <h3>Smart Air Quality System</h3>
+                    <p>IoT & Machine Learning based monitoring solution using Python and ARIMA.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-num">03 / EXPERIENCE</span>
+                    <h3>CodSoft Web Intern</h3>
+                    <p>Building responsive frontend architectures using modern JavaScript and CSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="grid">
+                <div class="card" style="border-color: var(--secondary);">
+                    <span class="card-num" style="color: var(--secondary);">RECOGNITION</span>
+                    <h3>Vultr Hackathon AIR 20</h3>
+                    <p>Ranked among top 20 in India for cloud-native innovative solutions.</p>
+                </div>
+                <div class="card">
+                    <span class="card-num">BEYOND CODE</span>
+                    <h3>Photography & Travel</h3>
+                    <p>Capturing frames with <b>Canon EOS R50</b> and riding the <b>Royal Enfield Bullet 350</b>.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-info">
+                <div>Salt Lake, Kolkata | +91 8389823061</div>
+                <div>© 2026 Mayun Giri. Engineered with Precision.</div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
